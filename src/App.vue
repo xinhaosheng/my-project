@@ -1,29 +1,45 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div id="app">
+        <el-container>
+            <el-header height="50px" class="layout-header">
+                <Header/>
+            </el-header>
+            <el-container>
+                <el-aside width="280px">
+                    <Nav/>
+                </el-aside>
+                <el-main class="layout-main">
+                    <router-view/>
+                </el-main>
+            </el-container>
+        </el-container>
     </div>
-    <router-view/>
-  </div>
 </template>
 
-<style lang="less">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
+<script>
+    import Header from '@/views/layouts/Header'
+    import Nav from '@/views/layouts/Nav'
+
+    export default {
+        name: 'App',
+        watch: {
+            // 路由监听
+            // $route(to) {
+            //     // Title 动态切换
+            //     document.title = to.meta.title;
+            // }
+        },
+        // mounted() {
+        //     // 获取默认 Title
+        //     document.title = this.$route.meta.title;
+        // },
+        components: {
+            Header,
+            Nav
+        }
     }
-  }
-}
+</script>
+
+<style lang="less">
+    @import "assets/less/main";
 </style>

@@ -1,0 +1,125 @@
+@import "conf";
+@import "init";
+
+html {
+    font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    font-size: @font-size-base;
+    color: @color-font;
+
+    h1, h2, h3, h4, h5, h6 {
+        color: @color-title;
+    }
+
+    h1 {
+        font-size: @font-size-title;
+    }
+
+    .layout-header {
+        .header;
+        background: @background;
+        box-shadow: @shadow;
+        z-index: 10;
+    }
+
+    .layout-main {
+        padding: 40px;
+    }
+
+    .row {
+        margin-bottom: 20px;
+
+        &.end {
+            margin-bottom: 0;
+        }
+    }
+
+    // 表格优化
+    .table-container {
+        box-shadow: @table-shadow;
+        border-radius: @table-radius;
+        overflow: hidden;
+
+        th, td {
+            &:first-child, &:last-child {
+                text-align: center;
+            }
+        }
+    }
+
+    // 卡片视图
+    .card-view {
+        .card {
+            position: relative;
+            margin-bottom: 20px;
+            cursor: pointer;
+
+            .card-del {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 50px;
+                height: 100%;
+                background: #F56C6C;
+                border-radius: 5px;
+                text-align: center;
+                box-shadow: 0 0 10px rgba(245, 108, 108, .5);
+                opacity: 0;
+                visibility: hidden;
+                transform: translateX(50px);
+                transition: all .3s;
+
+                .icon {
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                    color: #fff;
+                    font-size: 1.5rem;
+                }
+            }
+
+            &:hover {
+                .el-card {
+                    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .3);
+                }
+
+                .card-del {
+                    opacity: 1;
+                    visibility: visible;
+                    transform: translateX(0);
+                }
+            }
+        }
+    }
+
+    // 按钮组
+    .btn-group {
+        button {
+            width: 100%;
+        }
+    }
+}
+
+/******************** IconFont STO ********************/
+
+.iconFont {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+
+/******************** Element-UI STO ********************/
+
+// el-button 兼容 ionicons
+.el-button {
+    .icon {
+        margin-right: 10px;
+    }
+}
+
+// input prepend width
+.el-input-group__prepend {
+    width: 80px;
+}
